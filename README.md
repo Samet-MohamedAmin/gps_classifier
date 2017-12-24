@@ -16,12 +16,14 @@ $ pip3 install pillow
 $ pip3 install geocoder  
 http://geocoder.readthedocs.io/
 
+# Tests
+#### samples are from https://readexifdata.com/
+
 
 # what's next?
 ##### get rid of geocoder
 ##### use optional APIs to get location like openstreetmap, bing and yandex
 
-## samples are from https://readexifdata.com/
 
 # License
 GNU General Public License v3.0

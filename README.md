@@ -24,8 +24,8 @@ http://geocoder.readthedocs.io/
 
 
 # what's next?
-- [get rid of geocoder]
-- [use optional APIs to get location like **openstreetmap**, **bing** and **yandex**]
+- get rid of geocoder
+- use optional APIs to get location like **openstreetmap**, **bing** and **yandex**
 
 
 # License

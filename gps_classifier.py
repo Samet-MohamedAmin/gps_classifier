@@ -68,7 +68,7 @@ img_no_gps = 0
 img_no_class = 0
 
 if __name__ == "__main__":
-    k = input('please put all the samples in %s then press <enter>\n' % os.path.abspath(base_unknown_dir))
+    input('please put all the samples in %s then press <enter>\n' % os.path.abspath(base_unknown_dir))
     print('make sure you have internet connection')
     
     try:

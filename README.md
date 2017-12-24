@@ -12,7 +12,7 @@ Samples must be in (base_unknown_dir).
 ### pillow module
 $ pip3 install pillow
 ### gecoder
-( I will get rid of it as soon as possible)
+( I will get rid of it as soon as possible)\n
 $ pip3 install geocoder
 http://geocoder.readthedocs.io/
 

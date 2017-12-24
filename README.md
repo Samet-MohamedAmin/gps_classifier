@@ -10,10 +10,13 @@ Samples must be in (base_unknown_dir).
 # Installation
 ## Dependencies
 #### pillow module
+```bash
 $ pip3 install pillow
+```
 #### gecoder
-( I will get rid of it as soon as possible)  
-$ pip3 install geocoder  
+```bash
+$ pip3 install geocoder
+```
 http://geocoder.readthedocs.io/
 
 # Tests
@@ -21,8 +24,8 @@ http://geocoder.readthedocs.io/
 
 
 # what's next?
-##### get rid of geocoder
-##### use optional APIs to get location like openstreetmap, bing and yandex
+- [get rid of geocoder]
+- [use optional APIs to get location like **openstreetmap**, **bing** and **yandex**]
 
 
 # License

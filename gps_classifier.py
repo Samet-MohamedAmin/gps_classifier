@@ -12,6 +12,18 @@ import geocoder
 from PIL import ExifTags, Image
 
 
+# base_dir : the base directory
+base_dir = 'base'
+# unknown_dir : relative path of images without classification inside base_dir
+unknown_dir = 'unknown'
+# base_unknown_dir : path of samples
+base_unknown_dir = ''
+# number of requests to do if nothing happen
+n_tests = 5
+# None folder name
+none_name = 'other'
+
+
 def convert_to_deg(value, ref):
     """
     convert latitude or longitude value to degree
@@ -52,25 +64,18 @@ def get_gps_tags():
 
     return gps_tags
 
-# base_dir : the base directory
-base_dir = 'base'
-# base_unknown_dir : the base directory
-base_unknown_dir = os.path.join(base_dir, 'unknown')
 
-# number of requests to do if nothing happen
-n_tests = 5
-# None folder name
-none_name = 'other'
-gps_tags = get_gps_tags()
-# img_no_gps : number of images without gps tags
-img_no_gps = 0
-# img_no_class : number of images with gps tags without classification
-img_no_class = 0
+def classify():
+    global base_unknown_dir
+    gps_tags = get_gps_tags()
+    # img_no_gps : number of images without gps tags
+    img_no_gps = 0
+    # img_no_class : number of images with gps tags without classification
+    img_no_class = 0
 
-if __name__ == "__main__":
-    input('please put all the samples in %s then press <enter>\n' % os.path.abspath(base_unknown_dir))
-    print('make sure you have internet connection')
-    
+    if not base_unknown_dir:
+        base_unknown_dir = os.path.join(base_dir, unknown_dir)
+
     try:
         os.listdir(base_unknown_dir)
     except OSError:
@@ -124,6 +129,19 @@ if __name__ == "__main__":
         # if the image has no exif tags
         else:
             img_no_gps += 1
-
+    print('-'*51)
     print('# images without gps tag = %d' % img_no_gps)
     print('# images with gps tags without classification = %d' % img_no_class)
+
+
+if __name__ == "__main__":
+    print('current directory: \'%s\'' % os.path.abspath('.'))
+    base_dir_2 = input('base_dir = \'%s\' press <enter> of ok or enter the new value:\t' % base_dir)
+    if base_dir_2: base_dir = base_dir_2
+    unknown_dir_2 = input('unknown_dir = \'%s\' press <enter> of ok or enter the new value:\t' % unknown_dir)
+    if unknown_dir_2: unknown_dir = unknown_dir_2
+    base_unknown_dir = os.path.join(base_dir, unknown_dir)
+    input('please put all the samples in %s then press <enter>\n' % os.path.abspath(base_unknown_dir))
+    print('make sure you have internet connection')
+
+    classify()
